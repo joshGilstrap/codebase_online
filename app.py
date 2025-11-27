@@ -16,10 +16,10 @@ from langchain_core.prompts import ChatPromptTemplate
 st.set_page_config("Codebase Teacher", layout='wide')
 st.title("Cloud-Based Codebase Teacher")
 
-api_key = st.sidebar.text_input("Enter Groq API Key", type="password")
-if not api_key:
-    st.info("Please enter a Groq API Key to proceed. Get one at console.groq.com")
-    st.stop()
+# api_key = st.sidebar.text_input("Enter Groq API Key", type="password")
+# if not api_key:
+#     st.info("Please enter a Groq API Key to proceed. Get one at console.groq.com")
+#     st.stop()
 
 def process_zip_file(uploaded_zip):
     documents = []
@@ -108,7 +108,7 @@ if user_input:
     if not st.session_state.vectorstore:
         st.warning('Please upload a .zip file first.')
     else:
-        llm = ChatGroq(api_key=api_key, model_name='llama-3.3-70b-versatile')
+        llm = ChatGroq(api_key=st.secrets['groq_api_key'], model_name='llama-3.3-70b-versatile')
         
         prompt = ChatPromptTemplate.from_template("""
         Answer the question based only on the provided context.
