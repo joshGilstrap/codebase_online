@@ -6,7 +6,7 @@ Unlike local-only tools, this version is architected for Streamlit Community Clo
 
 ## Demo
 
-<img width="100%" alt="Codebase Teacher Demo" src="https://github.com/user-attachments/assets/c3bca63d-8d23-4806-89bf-07606ead3390" />
+<img width="1848" height="724" alt="Screenshot 2025-11-28 101608" src="https://github.com/user-attachments/assets/592048cc-92b8-4626-9706-e0e4cec009b6" />
 
 ## Key Features
 
