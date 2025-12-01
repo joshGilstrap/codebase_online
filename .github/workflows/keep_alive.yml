@@ -2,13 +2,25 @@ name: Keep App Alive
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 */10 * * *'
   workflow_dispatch:
 
 jobs:
-  ping_url:
+  wake_apps:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping URL
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
         run: |
-        curl -I https://codebaseteach.streamlit.app/
+          pip install playwright pytest-playwright
+          playwright install chromium
+
+      - name: Run Wake Up Script
+        run: python wake_up.py
